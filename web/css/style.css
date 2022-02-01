@@ -1,0 +1,59 @@
+body {
+    width: 50%;
+    margin: 0 auto;
+}
+
+header img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+header:first-child {
+    border: 1px solid white;
+    position: relative;
+}
+
+.greenSeparator {
+    background-color: #CAF29C;
+    height: 20px;
+    margin-top: 150px;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.tituloGris {
+    background-color: #CCCCCC;
+    padding: 2px;
+    margin: 1px;
+}
+
+.separadorPeque {
+    height: 2px;
+    background-color: #CCCCCC;
+}
+
+.row {
+    width: 100%;
+    margin: 20px 0;
+    position: relative;
+    height: 50px;
+}
+
+.col {
+    width: 50%;
+    float: left;
+}
+
+.submit {
+    text-align: center;
+}
+
+.error {
+    color: red;
+}
+
+.info {
+    color: navy;
+}
