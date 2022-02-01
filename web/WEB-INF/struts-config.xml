@@ -7,6 +7,7 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="Login" type="com.myapp.struts.Login"/>
         <form-bean name="Usuario" type="com.myapp.struts.Usuario"/>
     </form-beans>
     
@@ -19,11 +20,17 @@
     </global-forwards>
 
     <action-mappings>
-        <action input="/index.jsp" name="Usuario" path="/action" scope="request" type="com.myapp.struts.Action" validate="true">
+        <action input="/index.jsp" name="Login" path="/loginAction" scope="request" type="com.myapp.struts.LoginAction" validate="true">
+            <set-property property="cancellable" value="true" />
+            <exception key="errors.cancel" type="org.apache.struts.action.InvalidCancelException" path="/login.do"/>
+            <forward name="correcto" path="/cliente.jsp"/>
+            <forward name="registro" path="/signup.jsp"/>
+            <forward name="error" path="/error.jsp"/>
+        </action>
+        <action input="/signup.jsp" name="Usuario" path="/action" scope="request" type="com.myapp.struts.Action" validate="true">
             <set-property property="cancellable" value="true" />
             <exception key="errors.cancel" type="org.apache.struts.action.InvalidCancelException" path="/login.do"/>
             <forward name="correcto" path="/correcto.jsp"/>
-            <forward name="existe" path="/existe.jsp"/>
         </action>
     </action-mappings>
     

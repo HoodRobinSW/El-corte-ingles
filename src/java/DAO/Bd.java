@@ -1,5 +1,6 @@
 package DAO;
 
+import com.myapp.struts.Login;
 import com.myapp.struts.Usuario;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -58,6 +59,26 @@ public class Bd {
         existe = rs.next();
         
         return existe;
+    }
+    
+    public static boolean buscarUsuarioPorTelefono(String telefono) throws SQLException {
+        boolean encontrado = false;
+        Connection conn = CrearConexion();
+        String sql = "SELECT * FROM usuarios WHERE telefono='"+telefono+"';";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        encontrado = rs.next();
+        
+        return encontrado;
+    }
+    
+    public static boolean logearUsuario(Login login) throws SQLException {
+        Connection conn = CrearConexion();
+        String sql = "SELECT * FROM usuarios WHERE telefono='"+login.getTelefono()+"' AND password='"+login.getPassword()+"';";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+                
+        return rs.next();
     }
     
 }
